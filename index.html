@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Tailwind Responsive Dashboard</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="bg-gray-200">
+    <div class="flex min-h-screen">
+      <!-- Menu Toggle Checkbox -->
+      <input type="checkbox" id="menu-toggle" class="peer hidden" />
+
+      <!-- Sidebar -->
+      <div
+        class="z-50 w-64 bg-indigo-900 fixed h-full transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 md:relative md:translate-x-0 md:h-auto md:w-64 lg:w-1/5"
+      >
+        <!-- Overlay for Mobile -->
+        <label
+          for="menu-toggle"
+          class="md:hidden fixed inset-0 bg-black opacity-50 z-40 peer-checked:block hidden"
+        ></label>
+
+        <div class="relative z-50 h-full overflow-y-auto">
+          <div>
+            <h1
+              class="bg-indigo-800 text-xl font-bold text-gray-200 p-5 uppercase"
+            >
+              Giant Company
+            </h1>
+          </div>
+          <div>
+            <h4 class="text-gray-200 font-bold uppercase text-sm p-5">Pages</h4>
+          </div>
+          <div class="flex m-5">
+            <img
+              class="w-5 h-5"
+              src="src/images/dashboard.png"
+              alt="Dashboard"
+            />
+            <p class="my-auto mx-3 text-sm text-gray-100">Dashboard</p>
+          </div>
+          <div class="flex m-5">
+            <img
+              class="w-5 h-5"
+              src="src/images/customer.jpeg"
+              alt="Customers"
+            />
+            <p class="my-auto mx-3 text-sm text-gray-100">Customers</p>
+          </div>
+          <div class="flex m-5">
+            <img class="w-5 h-5" src="src/images/orders.png" alt="Orders" />
+            <p class="my-auto mx-3 text-sm text-gray-100">Orders</p>
+          </div>
+          <div class="flex m-5">
+            <img class="w-5 h-5" src="src/images/campaing.png" alt="Campaign" />
+            <p class="my-auto mx-3 text-sm text-gray-100">Campaign</p>
+          </div>
+          <div class="flex m-5">
+            <img class="w-5 h-5" src="src/images/message.png" alt="Messages" />
+            <p class="my-auto mx-3 text-sm text-gray-100">Messages</p>
+          </div>
+          <div class="flex m-5">
+            <img class="w-5 h-5" src="src/images/app.png" alt="Apps" />
+            <p class="my-auto mx-3 text-sm text-gray-100">Apps</p>
+          </div>
+          <div class="flex m-5">
+            <img class="w-5 h-5" src="src/images/setting.png" alt="Settings" />
+            <p class="my-auto mx-3 text-sm text-gray-100">Settings</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="w-full lg:w-4/5">
+        <!-- Top Bar -->
+        <div
+          class="flex justify-between px-2 py-5 bg-white shadow-md sticky top-0 z-30"
+        >
+          <!-- Hamburger Menu -->
+          <label
+            for="menu-toggle"
+            class="p-2 cursor-pointer md:hidden"
+            aria-label="Toggle sidebar"
+          >
+            <svg
+              class="w-6 h-6 text-gray-800 block peer-checked:hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+            <svg
+              class="w-6 h-6 text-gray-800 hidden peer-checked:block"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </label>
+
+          <!-- User Info -->
+          <div class="flex">
+            <img class="w-10 h-10" src="src/images/person.png" alt="User" />
+            <span class="my-auto p-2">Rezaie</span>
+          </div>
+
+          <!-- Top Bar Icons -->
+          <div class="flex gap-2 sm:gap-4 my-auto pr-2 sm:pr-6">
+            <img
+              class="bg-gray-100 rounded-full w-7 h-7 hidden sm:block"
+              src="src/images/search.png"
+              alt="Search"
+            />
+            <img
+              class="bg-gray-100 rounded-full w-7 h-7"
+              src="src/images/message1.png"
+              alt="Messages"
+            />
+            <img
+              class="bg-gray-100 rounded-full w-7 h-7 hidden sm:block"
+              src="src/images/warning.png"
+              alt="Warnings"
+            />
+            <a
+              href=""
+              class="text-indigo-500 font-bold my-auto text-sm sm:text-base"
+              >Logout</a
+            >
+          </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="bg-indigo-200 m-4 sm:m-7 p-4 sm:p-6">
+          <h1 class="text-2xl sm:text-4xl text-gray-800 font-medium">
+            Good Morning, Super Manager 🖐️
+          </h1>
+          <p class="mt-4 text-sm sm:text-base">
+            These are the stats for today, have a good day
+          </p>
+        </div>
+
+        <!-- Sales Cards -->
+        <div
+          class="flex flex-col md:flex-row m-4 sm:m-7 md:space-x-6 space-y-4 md:space-y-0"
+        >
+          <div class="Left-Card bg-white w-full md:w-1/2 p-4 shadow-lg">
+            <img src="src/images/wallet.png" class="w-10 h-10" alt="Wallet" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Plus</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">$800,000</span>
+            <span
+              class="bg-indigo-500 text-white p-1 rounded-full text-sm font-bold"
+              >+95%</span
+            >
+            <div class="mt-4 h-64"><canvas id="myChart"></canvas></div>
+          </div>
+          <div class="Right-Card bg-white w-full md:w-1/2 p-4 shadow-lg">
+            <img src="src/images/wallet.png" class="w-10 h-10" alt="Wallet" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Pro</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">-$550,835</span>
+            <span
+              class="bg-red-500 text-white p-1 rounded-full text-sm font-bold"
+              >-20%</span
+            >
+            <div class="mt-4 h-64"><canvas id="myChart2"></canvas></div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row m-4 sm:m-7 md:space-x-6 space-y-4 md:space-y-0"
+        >
+          <div class="Left-Card bg-white w-full md:w-1/2 p-4 shadow-lg">
+            <img src="src/images/wallet.png" class="w-10 h-10" alt="Wallet" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Plus</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">$800,000</span>
+            <span
+              class="bg-indigo-500 text-white p-1 rounded-full text-sm font-bold"
+              >+95%</span
+            >
+            <div class="mt-4 h-64"><canvas id="myChart3"></canvas></div>
+          </div>
+          <div class="Right-Card bg-white w-full md:w-1/2 p-4 shadow-lg">
+            <img src="src/images/wallet.png" class="w-10 h-10" alt="Wallet" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Pro</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">-$550,835</span>
+            <span
+              class="bg-red-500 text-white p-1 rounded-full text-sm font-bold"
+              >-20%</span
+            >
+            <div class="mt-4 h-64"><canvas id="myChart4"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Top Countries and Channels -->
+        <div
+          class="flex flex-col md:flex-row m-4 sm:m-7 md:space-x-6 space-y-4 md:space-y-0"
+        >
+          <div
+            class="w-full md:w-1/3 bg-white p-4 divide-y divide-gray-300 shadow-lg"
+          >
+            <h1 class="font-bold text-lg pb-4">Top Countries</h1>
+            <div class="mt-4 h-64"><canvas id="myChart5"></canvas></div>
+          </div>
+          <div
+            class="w-full md:w-2/3 bg-white p-4 divide-y divide-gray-300 shadow-lg"
+          >
+            <h1 class="font-bold text-lg pb-4">Top Channels</h1>
+            <div
+              class="flex bg-gray-100 p-2 uppercase font-bold text-xs text-gray-500"
+            >
+              <div class="w-1/3">Source</div>
+              <div class="flex w-2/3 justify-between">
+                <h1 class="hidden sm:block">Visitors</h1>
+                <h1>Revenue</h1>
+                <h1 class="hidden sm:block">Sales</h1>
+                <h1>Conversions</h1>
+              </div>
+            </div>
+            <div class="divide-y divide-gray-300">
+              <div class="py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="flex">
+                      <img
+                        src="src/images/youtube.png"
+                        class="w-6 h-6 sm:w-8 sm:h-8"
+                        alt="YouTube"
+                      />
+                      <h3 class="my-auto pl-2 text-sm sm:text-base">YouTube</h3>
+                    </div>
+                  </div>
+                  <div class="w-2/3 flex justify-between my-auto">
+                    <p class="hidden sm:block text-sm">2.4K</p>
+                    <p class="text-sm">$12,000</p>
+                    <p class="hidden sm:block text-sm">$500</p>
+                    <p class="text-sm">8.8%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="flex">
+                      <img
+                        src="src/images/youtube.png"
+                        class="w-6 h-6 sm:w-8 sm:h-8"
+                        alt="Facebook"
+                      />
+                      <h3 class="my-auto pl-2 text-sm sm:text-base">
+                        FaceBook
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="w-2/3 flex justify-between my-auto">
+                    <p class="hidden sm:block text-sm">3.1K</p>
+                    <p class="text-sm">$9,800</p>
+                    <p class="hidden sm:block text-sm">$640</p>
+                    <p class="text-sm">6.4%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="flex">
+                      <img
+                        src="src/images/youtube.png"
+                        class="w-6 h-6 sm:w-8 sm:h-8"
+                        alt="Google Ads"
+                      />
+                      <h3 class="my-auto pl-2 text-sm sm:text-base">
+                        Google Ads
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="w-2/3 flex justify-between my-auto">
+                    <p class="hidden sm:block text-sm">1.8K</p>
+                    <p class="text-sm">$7,500</p>
+                    <p class="hidden sm:block text-sm">$420</p>
+                    <p class="text-sm">5.3%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="flex">
+                      <img
+                        src="src/images/youtube.png"
+                        class="w-6 h-6 sm:w-8 sm:h-8"
+                        alt="Twitter"
+                      />
+                      <h3 class="my-auto pl-2 text-sm sm:text-base">Twitter</h3>
+                    </div>
+                  </div>
+                  <div class="w-2/3 flex justify-between my-auto">
+                    <p class="hidden sm:block text-sm">5.6K</p>
+                    <p class="text-sm">$15,400</p>
+                    <p class="hidden sm:block text-sm">$870</p>
+                    <p class="text-sm">9.2%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="flex">
+                      <img
+                        src="src/images/youtube.png"
+                        class="w-6 h-6 sm:w-8 sm:h-8"
+                        alt="Referral"
+                      />
+                      <h3 class="my-auto pl-2 text-sm sm:text-base">
+                        Referral
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="w-2/3 flex justify-between my-auto">
+                    <p class="hidden sm:block text-sm">1.2K</p>
+                    <p class="text-sm">$5,600</p>
+                    <p class="hidden sm:block text-sm">$310</p>
+                    <p class="text-sm">4.5%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="flex">
+                      <img
+                        src="src/images/youtube.png"
+                        class="w-6 h-6 sm:w-8 sm:h-8"
+                        alt="Direct"
+                      />
+                      <h3 class="my-auto pl-2 text-sm sm:text-base">Direct</h3>
+                    </div>
+                  </div>
+                  <div class="w-2/3 flex justify-between my-auto">
+                    <p class="hidden sm:block text-sm">6.3K</p>
+                    <p class="text-sm">$18,200</p>
+                    <p class="hidden sm:block text-sm">$1,020</p>
+                    <p class="text-sm">11.5%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Chart.js code
+      const ctx = document.getElementById("myChart");
+      const ctx2 = document.getElementById("myChart2");
+      const ctx3 = document.getElementById("myChart3");
+      const ctx4 = document.getElementById("myChart4");
+      const ctx5 = document.getElementById("myChart5");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 20, 30, 40, 50, 60],
+              borderWidth: 1,
+              backgroundColor: "#4f46e5",
+              borderColor: "#4f46e5",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: { y: { beginAtZero: true } },
+        },
+      });
+
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 50, 25, 30, 40, 14],
+              borderWidth: 1,
+              borderColor: "#4f46e5",
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: { y: { beginAtZero: true } },
+        },
+      });
+
+      new Chart(ctx3, {
+        type: "pie",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 50, 25, 30, 40, 14],
+              borderWidth: 1,
+              backgroundColor: [
+                "#4f46e5",
+                "#818cf8",
+                "#a5b4fc",
+                "#c7d2fe",
+                "#e0e7ff",
+                "#eef2ff",
+              ],
+            },
+          ],
+        },
+        options: { responsive: true, maintainAspectRatio: false },
+      });
+
+      new Chart(ctx4, {
+        type: "radar",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 50, 25, 30, 40, 14],
+              borderWidth: 1,
+              borderColor: "#4f46e5",
+              backgroundColor: "rgba(79, 70, 229, 0.2)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: { r: { beginAtZero: true } },
+        },
+      });
+
+      new Chart(ctx5, {
+        type: "pie",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 50, 25, 30, 40, 14],
+              borderWidth: 1,
+              backgroundColor: [
+                "#4f46e5",
+                "#818cf8",
+                "#a5b4fc",
+                "#c7d2fe",
+                "#e0e7ff",
+                "#eef2ff",
+              ],
+            },
+          ],
+        },
+        options: { responsive: true, maintainAspectRatio: false },
+      });
+
+      // JavaScript fallback for sidebar toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("change", function () {
+          const sidebar = document.querySelector(".z-50.w-64.bg-indigo-900");
+          const overlay = document.querySelector(".md\\:hidden.fixed.inset-0");
+          if (this.checked) {
+            sidebar.classList.remove("-translate-x-full");
+            sidebar.classList.add("translate-x-0");
+            overlay.classList.remove("hidden");
+            overlay.classList.add("block");
+          } else {
+            sidebar.classList.remove("translate-x-0");
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.remove("block");
+            overlay.classList.add("hidden");
+          }
+        });
+    </script>
+  </body>
+</html>
